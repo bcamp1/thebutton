@@ -1,5 +1,12 @@
+@font-face {
+    font-family: 'TheFont';
+    src:  url('Alegreya/Alegreya-BlackItalic.ttf') format('truetype');
+  }
+
 body {
     margin: 0;
+    background-color: #f0f0f0;
+    font-family: 'TheFont', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #wrapper {
@@ -9,16 +16,19 @@ body {
 #container {
     max-width: 900px;
     margin: auto;
+    position: relative;
+    top: 32px;
+
 }
 .big {
     text-align: center;
-    font-size: 60px;
+    font-size: 80px;
     font-weight: bolder;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'TheFont', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #number {
-    font-size: 250px;
+    font-size: 280px;
     position: relative;
     bottom: 60px;
 }
@@ -44,7 +54,8 @@ button {
     position: relative;
     bottom: 90px;
     z-index: 10;
-    transition: bottom 0.03s linear
+    transition: bottom 0.03s linear;
+    font-family: 'TheFont';
 }
 
 button:hover {
