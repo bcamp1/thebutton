@@ -4,6 +4,7 @@ const app = express()
 const server = http.createServer(app)
 const { Server } = require("socket.io")
 const io = new Server(server)
+const port = 8080
 
 app.use(express.static("public"))
 
@@ -21,7 +22,10 @@ io.on('connection', (socket) => {
     });
     socket.on('pressed', () => {
         let curTime = new Date().getTime();
-        if ((curTime - socket.lastCount) < 100) return;
+        if ((curTime - socket.lastCount) < 100) {
+            console.log('Count too fast. Invalidated')
+            return
+        }
         socket.lastCount = curTime
         count += 1
         socket.emit('count', count)
@@ -30,4 +34,5 @@ io.on('connection', (socket) => {
     })
 });
 
-server.listen(80)
+server.listen(port)
+console.log('Listening on port ' + port + '...')
